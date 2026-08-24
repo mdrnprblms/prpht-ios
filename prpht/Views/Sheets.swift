@@ -66,7 +66,7 @@ struct AccountSheet: View {
             .navigationTitle("Account")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Back") { dismiss() }
                         .foregroundStyle(Brand.brandText(scheme))
                 }
@@ -195,7 +195,7 @@ struct PmGraphSheet: View {
             .padding(16)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") { dismiss() }.foregroundStyle(Brand.textBrand)
                 }
             }
@@ -361,6 +361,6 @@ struct BetBubble: View {
 
 /// Tiny holder so thread views can observe the same AppState instance.
 enum AppStateHolder {
-    static nonisolated(unsafe) var shared = Shared()
+    static var shared = Shared()
     struct Shared { let state = AppState() }
 }

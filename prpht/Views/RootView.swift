@@ -100,7 +100,7 @@ struct PageNavBar: View {
         } label: {
             Text(p.label.uppercased())
                 .font(.system(size: 10, weight: .bold))
-                .tracking(1.2)
+                .kerning(1.2)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
                 .foregroundStyle(active ? AnyShapeStyle(Color.white) : AnyShapeStyle(Color.secondary))

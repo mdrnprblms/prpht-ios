@@ -90,17 +90,14 @@ struct FriendsView: View {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 // Top pane: friends' bets, vertical snap carousel (~55%).
-                ScrollView(.vertical) {
+                ScrollView(.vertical, showsIndicators: false) {
                     LazyVStack(spacing: 0) {
                         ForEach(friendsFeedData, id: \.who) { b in
                             FriendBetCard(bet: b, state: state)
                                 .frame(width: geo.size.width, height: geo.size.height * 0.55)
                         }
                     }
-                    .scrollTargetLayout()
                 }
-                .scrollTargetBehavior(.paging)
-                .scrollIndicators(.hidden)
                 .frame(height: geo.size.height * 0.55)
 
                 Divider()

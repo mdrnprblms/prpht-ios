@@ -69,17 +69,14 @@ struct ForYouView: View {
                 Spacer()
             } else {
                 GeometryReader { geo in
-                    ScrollView(.vertical) {
+                    ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack(spacing: 0) {
                             ForEach(cards, id: \.id) { fx in
                                 SwipeCard(fixture: fx, state: state)
                                     .frame(width: geo.size.width, height: geo.size.height)
                             }
                         }
-                        .scrollTargetLayout()
                     }
-                    .scrollTargetBehavior(.paging)
-                    .scrollIndicators(.hidden)
                 }
             }
         }
@@ -104,7 +101,7 @@ struct SwipeCard: View {
                 Spacer()
                 Text(fixture.market)
                     .font(.system(size: 11, weight: .bold))
-                    .tracking(1)
+                    .kerning(1)
                     .textCase(.uppercase)
                     .padding(.horizontal, 10).padding(.vertical, 5)
                     .background(Capsule().fill(Color.primary.opacity(0.07)))
@@ -163,7 +160,7 @@ struct CategoryBadge: View {
             Text(sport)
                 .font(.system(size: 12, weight: .black))
                 .textCase(.uppercase)
-                .tracking(1)
+                .kerning(1)
         }
         .padding(.horizontal, 10).padding(.vertical, 6)
         .background(Capsule().fill(Color(hexString: colorHex).opacity(0.15)))

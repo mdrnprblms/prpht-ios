@@ -88,7 +88,7 @@ struct NewGroupBetSheet: View {
             .navigationTitle("New group bet")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
+                ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") { dismiss() }.foregroundStyle(Brand.brandText(scheme))
                 }
             }
