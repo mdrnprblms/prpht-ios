@@ -19,6 +19,12 @@ targets:
       properties:
         CFBundleDisplayName: prpht
         UILaunchScreen: {}
+        UIAppFonts:
+          - ZalandoSansExpanded-1.ttf
+          - ZalandoSansExpanded-2.ttf
+          - ZalandoSansExpanded-3.ttf
+        NSCalendarsUsageDescription: prpht uses your calendar to add fixture kickoffs and watch parties you choose.
+        NSCalendarsFullAccessUsageDescription: prpht uses your calendar to add fixture kickoffs and watch parties you choose.
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.mdrnprblms.prpht

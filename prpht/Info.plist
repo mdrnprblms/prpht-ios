@@ -20,6 +20,16 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSCalendarsFullAccessUsageDescription</key>
+	<string>prpht uses your calendar to add fixture kickoffs and watch parties you choose.</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>prpht uses your calendar to add fixture kickoffs and watch parties you choose.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ZalandoSansExpanded-1.ttf</string>
+		<string>ZalandoSansExpanded-2.ttf</string>
+		<string>ZalandoSansExpanded-3.ttf</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict/>
 </dict>
