@@ -99,7 +99,7 @@ struct PageNavBar: View {
             }
         } label: {
             Text(p.label.uppercased())
-                .font(.system(size: 10, weight: .bold))
+                .font(zalando(.bold, 10))
                 .kerning(1.2)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
@@ -122,7 +122,7 @@ struct PageNavBar: View {
             state.showNewGroupBet = true
         } label: {
             Image(systemName: "plus")
-                .font(.system(size: 18, weight: .bold))
+                .font(zalando(.bold, 18))
                 .foregroundStyle(.white)
                 .frame(width: 40, height: 40)
                 .background(Circle().fill(Brand.accent(scheme)))
@@ -148,7 +148,7 @@ struct ToastView: View {
     let text: String
     var body: some View {
         Text(text)
-            .font(.system(size: 13, weight: .semibold))
+            .font(zalando(.semibold, 13))
             .padding(.horizontal, 16).padding(.vertical, 10)
             .background(Capsule().fill(Color.black.opacity(0.75)))
             .foregroundStyle(.white)

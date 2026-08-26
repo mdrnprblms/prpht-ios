@@ -13,11 +13,11 @@ struct BalancePill: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 1) {
             Text("BALANCE")
-                .font(.system(size: 8, weight: .bold))
+                .font(zalando(.bold, 8))
                 .tracking(1.5)
                 .foregroundStyle(.secondary)
             Text(money(state.balance))
-                .font(.system(size: 12, weight: .bold))
+                .font(zalando(.bold, 12))
         }
     }
 }
@@ -28,7 +28,7 @@ struct AccountButton: View {
     var body: some View {
         Button { show = true } label: {
             Image(systemName: "person.crop.circle")
-                .font(.system(size: 22))
+                .font(zalando(.regular, 22))
                 .foregroundStyle(Color.secondary)
         }
         .sheet(isPresented: $show) { AccountSheet(state: state) }
@@ -43,7 +43,7 @@ struct BetslipView: View {
         VStack(spacing: 0) {
             HStack {
                 Text("Betslip")
-                    .font(.system(size: 26, weight: .heavy))
+                    .font(zalando(.heavy, 26))
                 Spacer()
                 BalancePill(state: state)
                 AccountButton(state: state)
@@ -67,13 +67,13 @@ struct BetslipView: View {
         VStack(spacing: 10) {
             Spacer()
             Image(systemName: "doc.text.magnifyingglass")
-                .font(.system(size: 44))
+                .font(zalando(.regular, 44))
                 .foregroundStyle(.tertiary)
             Text("Your slip is empty")
-                .font(.system(size: 15, weight: .semibold))
+                .font(zalando(.semibold, 15))
                 .foregroundStyle(.secondary)
             Text("Swipe to For You and tap any market.")
-                .font(.system(size: 13))
+                .font(zalando(.regular, 13))
                 .foregroundStyle(.tertiary)
             Spacer()
         }
@@ -84,10 +84,10 @@ struct BetslipView: View {
         ScrollView {
             VStack(spacing: 12) {
                 HStack {
-                    Text("SINGLES").font(.system(size: 11, weight: .bold)).tracking(1.5).foregroundStyle(.secondary)
+                    Text("SINGLES").font(zalando(.bold, 11)).tracking(1.5).foregroundStyle(.secondary)
                     Spacer()
                     Button("Clear all") { state.clearSlip() }
-                        .font(.system(size: 12, weight: .bold))
+                        .font(zalando(.bold, 12))
                         .foregroundStyle(Brand.brandText(scheme))
                 }
                 .padding(.horizontal, 16)
@@ -107,9 +107,9 @@ struct BetslipView: View {
     private var placeSection: some View {
         VStack(spacing: 6) {
             HStack {
-                Text("Total stake").font(.system(size: 15, weight: .semibold))
+                Text("Total stake").font(zalando(.semibold, 15))
                 Spacer()
-                Text(money(state.totalStake)).font(.system(size: 18, weight: .black))
+                Text(money(state.totalStake)).font(zalando(.black, 18))
             }
             Button {
                 Task { await state.runSimulation() }
@@ -123,7 +123,7 @@ struct BetslipView: View {
                         Text("Place bets · \(money(state.totalStake))")
                     }
                 }
-                .font(.system(size: 17, weight: .bold))
+                .font(zalando(.bold, 17))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
@@ -143,11 +143,11 @@ struct BetslipView: View {
             let up = note.net >= 0
             Text(up ? "You won \(money(note.returned)) · up \(money(note.net))"
                     : "Lost \(money(abs(note.net))) · returned \(money(note.returned))")
-                .font(.system(size: 12, weight: .bold))
+                .font(zalando(.bold, 12))
                 .foregroundStyle(up ? Brand.winGreen : Color.red)
         } else {
             Text("Stakes snap to the 5p grid · £1 max. Bet responsibly. 18+.")
-                .font(.system(size: 10))
+                .font(zalando(.regular, 10))
                 .foregroundStyle(.tertiary)
         }
     }
@@ -164,26 +164,26 @@ struct SlipRow: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(bet.selection).font(.system(size: 14, weight: .bold))
-                    Text(bet.match).font(.system(size: 11)).foregroundStyle(.secondary)
+                    Text(bet.selection).font(zalando(.bold, 14))
+                    Text(bet.match).font(zalando(.regular, 11)).foregroundStyle(.secondary)
                 }
                 Spacer()
                 if let outcome = bet.outcome {
                     switch outcome {
                     case .won(let ret):
                         VStack(alignment: .trailing) {
-                            Text("WON").font(.system(size: 13, weight: .black)).foregroundStyle(Brand.winGreen)
-                            Text("+\(money(ret))").font(.system(size: 10, weight: .semibold)).foregroundStyle(Brand.winGreen)
+                            Text("WON").font(zalando(.black, 13)).foregroundStyle(Brand.winGreen)
+                            Text("+\(money(ret))").font(zalando(.semibold, 10)).foregroundStyle(Brand.winGreen)
                         }
                     case .lost:
                         VStack(alignment: .trailing) {
-                            Text("LOST").font(.system(size: 13, weight: .black)).foregroundStyle(.red)
-                            Text("-\(money(bet.stake))").font(.system(size: 10)).foregroundStyle(.secondary)
+                            Text("LOST").font(zalando(.black, 13)).foregroundStyle(.red)
+                            Text("-\(money(bet.stake))").font(zalando(.regular, 10)).foregroundStyle(.secondary)
                         }
                     }
                 } else {
                     Text(fractionalOdds(bet.odds))
-                        .font(.system(size: 14, weight: .black))
+                        .font(zalando(.black, 14))
                         .foregroundStyle(Brand.brandText(scheme))
                     Button {
                         withAnimation { state.removeBet(id: bet.id) }
@@ -204,7 +204,7 @@ struct SlipRow: View {
                     ), in: 0.05...1, step: 0.05)
                     .tint(Brand.accent(scheme))
                     Text(money(bet.stake))
-                        .font(.system(size: 13, weight: .bold))
+                        .font(zalando(.bold, 13))
                         .monospacedDigit()
                         .frame(width: 52, alignment: .trailing)
                 }
@@ -233,19 +233,19 @@ struct AccaBlock: View {
         HStack {
             VStack(alignment: .leading, spacing: 3) {
                 Text("\(state.bets.count)-fold Accumulator")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(zalando(.bold, 14))
                     .foregroundStyle(Brand.textBrand)
                 Text("£1 stake")
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(zalando(.semibold, 11))
                     .foregroundStyle(.secondary)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 3) {
                 Text(String(format: "%.2f", state.accaOdds))
-                    .font(.system(size: 17, weight: .black))
+                    .font(zalando(.black, 17))
                     .foregroundStyle(Brand.textBrand)
                 Text("Returns £\(String(format: "%.2f", state.accaOdds))")
-                    .font(.system(size: 10, weight: .semibold))
+                    .font(zalando(.semibold, 10))
                     .foregroundStyle(.secondary)
             }
         }

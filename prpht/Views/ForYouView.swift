@@ -23,12 +23,17 @@ struct SportStrip: View {
                         state.currentSport = sport
                     } label: {
                         HStack(spacing: 5) {
-                            if marketSports.contains(sport) {
+                            if let iconName = sportIconAssetName(sport) {
+                                Image(iconName)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 13, height: 13)
+                            } else if marketSports.contains(sport) {
                                 Image(systemName: "chart.line.uptrend.xyaxis")
-                                    .font(.system(size: 11, weight: .bold))
+                                    .font(zalando(.bold, 11))
                             }
                             Text(sport)
-                                .font(.system(size: 12, weight: .bold))
+                                .font(zalando(.bold, 12))
                         }
                         .padding(.horizontal, 12).padding(.vertical, 7)
                         .background(
@@ -55,9 +60,15 @@ struct ForYouView: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                BalancePill(state: state)
+                Image(.logo)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 20)
                 Spacer()
-                AccountButton(state: state)
+                HStack(spacing: 12) {
+                    BalancePill(state: state)
+                    AccountButton(state: state)
+                }
             }
             .padding(.horizontal, 14).padding(.top, 6)
 
@@ -68,18 +79,52 @@ struct ForYouView: View {
                 Text("Nothing here yet").foregroundStyle(.secondary)
                 Spacer()
             } else {
-                GeometryReader { geo in
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVStack(spacing: 0) {
-                            ForEach(cards, id: \.id) { fx in
-                                SwipeCard(fixture: fx, state: state)
-                                    .frame(width: geo.size.width, height: geo.size.height)
-                            }
-                        }
-                    }
-                }
+                VerticalPagingFeed(cards: cards, state: state)
+                    .id(state.currentSport)
+                    .padding(.bottom, 70)
             }
         }
+    }
+}
+
+// MARK: - Vertical one-card-per-swipe paging (iOS 16 compatible; TabView's
+// .page style only snaps horizontally, so paging is done manually with a
+// drag gesture that settles on the nearest card).
+
+struct VerticalPagingFeed: View {
+    let cards: [Fixture]
+    @ObservedObject var state: AppState
+    @State private var index = 0
+    @GestureState private var dragOffset: CGFloat = 0
+
+    var body: some View {
+        GeometryReader { geo in
+            let h = geo.size.height
+            VStack(spacing: 0) {
+                ForEach(cards, id: \.id) { fx in
+                    SwipeCard(fixture: fx, state: state)
+                        .frame(width: geo.size.width, height: h)
+                }
+            }
+            .offset(y: -CGFloat(index) * h + dragOffset)
+            .animation(.interactiveSpring(response: 0.35, dampingFraction: 0.85), value: index)
+            .animation(.interactiveSpring(response: 0.35, dampingFraction: 0.85), value: dragOffset)
+            .gesture(
+                DragGesture()
+                    .updating($dragOffset) { value, out, _ in
+                        out = value.translation.height
+                    }
+                    .onEnded { value in
+                        let threshold = h * 0.22
+                        if value.translation.height < -threshold, index < cards.count - 1 {
+                            index += 1
+                        } else if value.translation.height > threshold, index > 0 {
+                            index -= 1
+                        }
+                    }
+            )
+        }
+        .clipped()
     }
 }
 
@@ -100,7 +145,7 @@ struct SwipeCard: View {
                               colorHex: fixture.colorHex)
                 Spacer()
                 Text(fixture.market)
-                    .font(.system(size: 11, weight: .bold))
+                    .font(zalando(.bold, 11))
                     .kerning(1)
                     .textCase(.uppercase)
                     .padding(.horizontal, 10).padding(.vertical, 5)
@@ -112,13 +157,17 @@ struct SwipeCard: View {
 
             // Headline
             Text(headline.selection?.line ?? headline.text)
-                .font(.system(size: 30, weight: .heavy))
+                .font(zalando(.heavy, 30))
                 .lineSpacing(4)
+                .lineLimit(4)
+                .minimumScaleFactor(0.6)
                 .padding(.bottom, 10)
 
             Text("\(fixture.match) · \(fixture.league) · \(fixture.time)")
-                .font(.system(size: 13, weight: .semibold))
+                .font(zalando(.semibold, 13))
                 .foregroundStyle(.secondary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
                 .padding(.bottom, 20)
 
             Spacer()
@@ -134,12 +183,20 @@ struct SwipeCard: View {
                 Label("\(fixture.likes)", systemImage: "heart")
                 Spacer()
                 GraphButton(fixtureId: fixture.id)
+                ShareLink(item: shareText) {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
             }
-            .font(.system(size: 13, weight: .semibold))
+            .font(zalando(.semibold, 13))
             .foregroundStyle(.secondary)
+            .lineLimit(1)
             .padding(.top, 14)
         }
         .padding(24)
+    }
+
+    private var shareText: String {
+        "\(fixture.match) · \(fixture.market) on prpht"
     }
 
     private var headline: (selection: Sel?, text: String) {
@@ -154,11 +211,21 @@ struct CategoryBadge: View {
 
     var body: some View {
         HStack(spacing: 6) {
-            Circle()
-                .fill(Color(hexString: colorHex))
-                .frame(width: 8, height: 8)
+            if let iconName = sportIconAssetName(sport) {
+                Image(iconName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 12, height: 12)
+            } else if marketSports.contains(sport) {
+                Image(systemName: "chart.line.uptrend.xyaxis")
+                    .font(.system(size: 10, weight: .bold))
+            } else {
+                Circle()
+                    .fill(Color(hexString: colorHex))
+                    .frame(width: 8, height: 8)
+            }
             Text(sport)
-                .font(.system(size: 12, weight: .black))
+                .font(zalando(.black, 12))
                 .textCase(.uppercase)
                 .kerning(1)
         }
@@ -192,10 +259,10 @@ struct BetButton: View {
                 } label: {
                     VStack(spacing: 2) {
                         Text(placed ? sel.name : "£1 bet \(sel.name)")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(zalando(.bold, 11))
                             .lineLimit(1).minimumScaleFactor(0.7)
                         Text("→ \(money(sel.odds))")
-                            .font(.system(size: 16, weight: .black))
+                            .font(zalando(.black, 16))
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
@@ -215,9 +282,9 @@ struct BetButton: View {
                 } label: {
                     VStack(spacing: 4) {
                         Image(systemName: placed ? "checkmark.circle.fill" : "sterlingsign.circle")
-                            .font(.system(size: 22, weight: .bold))
+                            .font(zalando(.bold, 22))
                         Text(placed ? "Placed" : "£1 bet")
-                            .font(.system(size: 10, weight: .bold))
+                            .font(zalando(.bold, 10))
                     }
                     .foregroundStyle(placed ? Brand.brandText(scheme) : Color.secondary)
                 }

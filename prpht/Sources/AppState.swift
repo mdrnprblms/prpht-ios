@@ -61,7 +61,7 @@ struct SlipBet: Identifiable, Equatable {
     var outcome: LegOutcome? = nil
 }
 
-enum LegOutcome { case won(returns: Double); case lost }
+enum LegOutcome: Equatable { case won(returns: Double); case lost }
 
 struct HistoryEntry: Identifiable {
     let id = UUID()
@@ -191,11 +191,6 @@ final class AppState: ObservableObject {
 
     func fixture(id: String) -> Fixture? {
         feed.first { $0.id == id } ?? demoFixtures.first { $0.id == id }
-    }
-
-    /// All friends' bets on one match, for the fixtures timeline clusters.
-    func friendsFeedBets(matchId: String) -> [FriendBet] {
-        friendsFeedData.filter { $0.matchId == matchId }
     }
 
     // MARK: Toast
@@ -368,7 +363,7 @@ final class AppState: ObservableObject {
         guard !joined(s) else { return }
         joinedSweeps.insert(s.id)
         sweepPicks[s.id] = runner
-        sweepstakes[id: s.id]?.entrants.append(SweepEntrant(who: "You"))
+        sweepstakes.appendTo(id: s.id) { $0.entrants.append(SweepEntrant(who: "You")) }
         showToast("You're in · \(runner)")
     }
 

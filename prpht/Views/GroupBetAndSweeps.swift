@@ -24,7 +24,7 @@ struct NewGroupBetSheet: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Custom question")
                             Text("Ask your own instead of picking a fixture")
-                                .font(.system(size: 11)).foregroundStyle(.secondary)
+                                .font(zalando(.regular, 11)).foregroundStyle(.secondary)
                         }
                     }
                     .tint(Brand.accent(scheme))
@@ -40,7 +40,7 @@ struct NewGroupBetSheet: View {
                         }
                         let runners = sweepEvents[state.newBet.selectedEvent].runners
                         Text("Runners: " + runners.joined(separator: " · "))
-                            .font(.system(size: 11)).foregroundStyle(.secondary)
+                            .font(zalando(.regular, 11)).foregroundStyle(.secondary)
                     }
                 } header: {
                     Text("Question")
@@ -75,7 +75,7 @@ struct NewGroupBetSheet: View {
                         dismiss()
                     } label: {
                         Text("Create group bet")
-                            .font(.system(size: 16, weight: .bold))
+                            .font(zalando(.bold, 16))
                             .frame(maxWidth: .infinity)
                             .foregroundStyle(.white)
                     }
@@ -126,7 +126,7 @@ struct NewGroupBetSheet: View {
                 state.newBet.customResponses.append(v)
                 draftResponse = ""
             }
-            .font(.system(size: 13, weight: .bold))
+            .font(zalando(.bold, 13))
         }
         if !state.newBet.customResponses.isEmpty {
             FlowChips(items: state.newBet.customResponses) { i in
@@ -152,12 +152,12 @@ struct PhoneInvites: View {
                 state.newBet.phoneNumbers.append(v)
                 phone = ""
             }
-            .font(.system(size: 13, weight: .bold))
+            .font(zalando(.bold, 13))
         }
         ForEach(Array(state.newBet.phoneNumbers.enumerated()), id: \.offset) { i, p in
             HStack {
                 Image(systemName: "phone")
-                Text(p).font(.system(size: 13))
+                Text(p).font(zalando(.regular, 13))
                 Spacer()
                 Button {
                     state.newBet.phoneNumbers.remove(at: i)
@@ -178,9 +178,9 @@ struct FlowChips: View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 90), spacing: 6)], spacing: 6) {
             ForEach(Array(items.enumerated()), id: \.offset) { i, item in
                 HStack(spacing: 5) {
-                    Text(item).font(.system(size: 11, weight: .bold)).lineLimit(1)
+                    Text(item).font(zalando(.bold, 11)).lineLimit(1)
                     Button { onRemove(i) } label: {
-                        Image(systemName: "xmark").font(.system(size: 9, weight: .black))
+                        Image(systemName: "xmark").font(zalando(.black, 9))
                     }
                 }
                 .padding(.horizontal, 9).padding(.vertical, 5)
@@ -208,17 +208,17 @@ struct SweepRow: View {
         } label: {
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    Text(sweep.name).font(.system(size: 14, weight: .bold)).lineLimit(1)
+                    Text(sweep.name).font(zalando(.bold, 14)).lineLimit(1)
                     Spacer()
-                    Text(money(pot)).font(.system(size: 13, weight: .black))
+                    Text(money(pot)).font(zalando(.black, 13))
                         .foregroundStyle(Brand.brandText(scheme))
                 }
                 Text("\(sweep.event) · hosted by \(sweep.host) · \(sweep.entrants.count) entrants")
-                    .font(.system(size: 11)).foregroundStyle(.secondary)
+                    .font(zalando(.regular, 11)).foregroundStyle(.secondary)
                 if joined {
                     Label("You're in — \(state.sweepPicks[sweep.id] ?? "")",
                           systemImage: "checkmark.seal.fill")
-                        .font(.system(size: 11, weight: .bold))
+                        .font(zalando(.bold, 11))
                         .foregroundStyle(Brand.winGreen)
                 }
             }
@@ -231,6 +231,8 @@ struct SweepDetail: View {
     let sweep: Sweepstake
     @ObservedObject var state: AppState
     @Environment(\.colorScheme) private var scheme
+
+    private var joined: Bool { state.joined(sweep) }
 
     var body: some View {
         List {
@@ -248,7 +250,7 @@ struct SweepDetail: View {
             Section("Runners") {
                 if joined {
                     Text("Your pick: \(state.sweepPicks[sweep.id] ?? "")")
-                        .font(.system(size: 13, weight: .bold)).foregroundStyle(Brand.winGreen)
+                        .font(zalando(.bold, 13)).foregroundStyle(Brand.winGreen)
                 } else {
                     ForEach(sweep.runners, id: \.self) { r in
                         Button {

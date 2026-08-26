@@ -66,7 +66,7 @@ struct Sweepstake {
     let host: String
     let event: String
     let runners: [String]
-    let entrants: [SweepEntrant]
+    var entrants: [SweepEntrant]
     let status: String
 }
 
@@ -234,18 +234,6 @@ let friendsFeedData: [FriendBet] = [
     FriendBet(who: "Marcus", ago: "2h", matchId: "r4", selection: "Corach Rambler",
               match: "Grand National", odds: 6, line: "Corach Rambler to win the Grand National", note: "following Dee blindly"),
 ]
-
-let fixtureTimes: [String: (when: String, venue: String, comp: String)] = [
-    "f1": (when: "Today 12:30", venue: "Emirates Stadium", comp: "Premier League"),
-    "y1": (when: "Today 12:30", venue: "Emirates Stadium", comp: "Premier League"),
-    "f2": (when: "Today 17:30", venue: "Etihad Stadium", comp: "Premier League"),
-    "y2": (when: "Today 17:30", venue: "Etihad Stadium", comp: "Premier League"),
-    "r4": (when: "Tomorrow 16:00", venue: "Aintree", comp: "Grand National"),
-    "f4": (when: "Sun 14:30", venue: "Allianz Arena", comp: "Bundesliga"),
-    "t1": (when: "Wed 13:00", venue: "Centre Court", comp: "Wimbledon"),
-    "y8": (when: "Tue 20:00", venue: "Parc des Princes", comp: "Ligue 1"),
-]
-let fixtureOrder = ["f1", "y1", "f2", "y2", "r4", "f4", "y8", "t1"]
 
 let conversationsData: [Conversation] = [
     Conversation(id: "m1", who: "Simon", colorHex: "#C8563B", msgs: [ChatMsg(fromMe: false, kindBet: false, matchId: "", selection: "", match: "", odds: 0, line: "", text: "you seeing this Arsenal price?", t: "09:12"),

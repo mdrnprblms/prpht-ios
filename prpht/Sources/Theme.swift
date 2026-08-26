@@ -66,3 +66,43 @@ enum Wash {
 func money(_ n: Double) -> String {
     String(format: "£%.2f", n)
 }
+
+// MARK: - Zalando Sans Expanded (ported typeface)
+//
+// The web only loads 300/600/900, so CSS font matching resolves any other
+// weight to the nearest of those three (see prpht.html's stylesheet
+// comments) rather than synthesizing a bold. `zalando` mirrors that: it
+// snaps every SwiftUI weight down to one of the three real static faces.
+
+enum ZFont {
+    static let light    = "ZalandoSansExpanded-Light"
+    static let semibold = "ZalandoSansExpanded-SemiBold"
+    static let black    = "ZalandoSansExpanded-Black"
+}
+
+func zalando(_ weight: Font.Weight, _ size: CGFloat) -> Font {
+    switch weight {
+    case .medium, .semibold:
+        return .custom(ZFont.semibold, size: size)
+    case .bold, .heavy, .black:
+        return .custom(ZFont.black, size: size)
+    default:
+        return .custom(ZFont.light, size: size)
+    }
+}
+
+// MARK: - Sport icon artwork (real icons scraped from the web app; the
+// prediction-market categories and "For You" have no icon-*.svg on the web
+// either, so they fall back to the same SF Symbol / colour dot everywhere.)
+
+func sportIconAssetName(_ sport: String) -> String? {
+    switch sport {
+    case "Football":     return "IconFootball"
+    case "Basketball":   return "IconBasketball"
+    case "Cricket":      return "IconCricket"
+    case "Racing":       return "IconRacing"
+    case "Tennis":       return "IconTennis"
+    case "Love Island":  return "IconLoveIsland"
+    default:             return nil
+    }
+}

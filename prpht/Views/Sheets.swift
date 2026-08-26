@@ -22,9 +22,9 @@ struct AccountSheet: View {
                     HStack(spacing: 14) {
                         ZCircle(letter: "LP", colorHex: "#A6BE47", size: 54)
                         VStack(alignment: .leading, spacing: 2) {
-                            Text("Luke P").font(.system(size: 17, weight: .bold))
+                            Text("Luke P").font(zalando(.bold, 17))
                             Text("@mdrnprblms · Member since Jul 2026")
-                                .font(.system(size: 11)).foregroundStyle(.secondary)
+                                .font(zalando(.regular, 11)).foregroundStyle(.secondary)
                         }
                     }
                     .padding(.vertical, 4)
@@ -32,9 +32,9 @@ struct AccountSheet: View {
 
                 Section("Balance") {
                     Text(money(state.balance))
-                        .font(.system(size: 34, weight: .heavy))
+                        .font(zalando(.heavy, 34))
                     Text("Profit / loss: \(money(state.profitLoss))")
-                        .font(.system(size: 12, weight: .bold))
+                        .font(zalando(.bold, 12))
                         .foregroundStyle(state.profitLoss >= 0 ? Brand.winGreen : Color.red)
                 }
 
@@ -55,7 +55,7 @@ struct AccountSheet: View {
 
                 Section("Bet history") {
                     if state.betHistory.isEmpty {
-                        Text("No bets yet").foregroundStyle(.tertiary).font(.system(size: 13))
+                        Text("No bets yet").foregroundStyle(.tertiary).font(zalando(.regular, 13))
                     }
                     ForEach(state.betHistory.prefix(30)) { h in
                         HistoryRow(entry: h)
@@ -77,9 +77,9 @@ struct AccountSheet: View {
     @ViewBuilder
     private func stat(_ label: String, _ value: String) -> some View {
         VStack(spacing: 2) {
-            Text(value).font(.system(size: 22, weight: .black))
+            Text(value).font(zalando(.black, 22))
             Text(label.uppercased())
-                .font(.system(size: 9, weight: .bold)).tracking(1)
+                .font(zalando(.bold, 9)).tracking(1)
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity)
@@ -92,17 +92,17 @@ struct HistoryRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
-                Text(entry.label).font(.system(size: 13, weight: .bold))
+                Text(entry.label).font(zalando(.bold, 13))
                 Text("\(entry.type) · \(entry.match)")
-                    .font(.system(size: 11)).foregroundStyle(.secondary)
+                    .font(zalando(.regular, 11)).foregroundStyle(.secondary)
                     .lineLimit(1)
             }
             Spacer()
             VStack(alignment: .trailing, spacing: 2) {
                 Text(entry.won ? "+\(money(entry.returns))" : "-\(money(entry.stake))")
-                    .font(.system(size: 13, weight: .black))
+                    .font(zalando(.black, 13))
                     .foregroundStyle(entry.won ? Brand.winGreen : Color.red)
-                Text(fractionalOdds(entry.odds)).font(.system(size: 10)).foregroundStyle(.tertiary)
+                Text(fractionalOdds(entry.odds)).font(zalando(.regular, 10)).foregroundStyle(.tertiary)
             }
         }
     }
@@ -128,7 +128,7 @@ struct Xorshift {
     }
 }
 
-struct PmPoint { let t: Date; let p: Double }
+struct PmPoint { let t: Date; var p: Double }
 
 func pmHistory(fixtureId: String) -> (fixture: Fixture, series: [[PmPoint]]) {
     guard let fx = demoFixtures.first(where: { $0.id == fixtureId })
@@ -150,7 +150,9 @@ func pmHistory(fixtureId: String) -> (fixture: Fixture, series: [[PmPoint]]) {
         for i in 0..<N {
             let t = Double(i) / Double(N - 1)
             drift = drift * 0.86 + shocks[i] * 0.014
-            let p = pStart + (pEnd - pStart) * t + sin(t * 9.7 + Double(si) * 2.1) * 0.012 + drift
+            let phase: Double = t * 9.7 + Double(si) * 2.1
+            let wobble: Double = sin(phase) * 0.012
+            let p: Double = pStart + (pEnd - pStart) * t + wobble + drift
             pts.append(PmPoint(t: start.addingTimeInterval((end.timeIntervalSince(start)) * t),
                                p: min(0.97, max(0.02, p))))
         }
@@ -182,12 +184,12 @@ struct PmGraphSheet: View {
 
         return NavigationStack {
             VStack(alignment: .leading, spacing: 10) {
-                Text(data.fixture.match).font(.system(size: 20, weight: .black))
+                Text(data.fixture.match).font(zalando(.black, 20))
                 Text("\(data.fixture.time) · \(data.fixture.league)")
-                    .font(.system(size: 12)).foregroundStyle(.secondary)
+                    .font(zalando(.regular, 12)).foregroundStyle(.secondary)
 
                 ChartCanvas(series: series, pos: Binding(get: { min(pos, n-1) }, set: { pos = $0 }))
-                    .aspectRatio(16/9, allowHitTesting: true)
+                    .aspectRatio(16/9, contentMode: .fit)
 
                 legend(selections: pmHistory(fixtureId: fixtureId).fixture.selections, series: series)
                 Spacer()
@@ -210,10 +212,10 @@ struct PmGraphSheet: View {
             ForEach(Array(selections.enumerated()), id: \.offset) { si, sel in
                 HStack {
                     Circle().fill(pmColors[si % pmColors.count]).frame(width: 10, height: 10)
-                    Text(sel.name).font(.system(size: 12, weight: .semibold)).lineLimit(1)
+                    Text(sel.name).font(zalando(.semibold, 12)).lineLimit(1)
                     Spacer()
                     Text("\(Int((series[si][min(p, series[si].count-1)].p) * 100))%")
-                        .font(.system(size: 13, weight: .black))
+                        .font(zalando(.black, 13))
                         .foregroundStyle(pmColors[si % pmColors.count])
                 }
             }
@@ -308,7 +310,7 @@ struct TextBubble: View {
         HStack {
             if msg.fromMe { Spacer(minLength: 60) }
             Text(msg.text)
-                .font(.system(size: 14))
+                .font(zalando(.regular, 14))
                 .padding(10)
                 .background(
                     RoundedRectangle(cornerRadius: 14)
@@ -330,9 +332,9 @@ struct BetBubble: View {
             if msg.fromMe { Spacer(minLength: 40) }
             VStack(alignment: .leading, spacing: 6) {
                 Label("\(msg.match)", systemImage: "trophy")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(zalando(.bold, 11))
                     .foregroundStyle(Brand.brandText(scheme))
-                Text(msg.line).font(.system(size: 13, weight: .semibold))
+                Text(msg.line).font(zalando(.semibold, 13))
                 HStack {
                     Button {
                         let sel = Sel(name: msg.selection, odds: msg.odds, line: msg.line)
@@ -340,14 +342,14 @@ struct BetBubble: View {
                     } label: {
                         Text(state.isPlaced(fixtureId: msg.matchId, selName: msg.selection)
                              ? "On slip ✓" : "£1 bet \(msg.selection)")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(zalando(.bold, 11))
                             .padding(.horizontal, 10).padding(.vertical, 6)
                             .background(Capsule().fill(Brand.accent(scheme)))
                             .foregroundStyle(.white)
                     }
                     .buttonStyle(SquishButtonStyle())
                     Spacer()
-                    Text(fractionalOdds(msg.odds)).font(.system(size: 12, weight: .black))
+                    Text(fractionalOdds(msg.odds)).font(zalando(.black, 12))
                 }
             }
             .padding(10)
@@ -360,7 +362,9 @@ struct BetBubble: View {
 }
 
 /// Tiny holder so thread views can observe the same AppState instance.
+@MainActor
 enum AppStateHolder {
     static var shared = Shared()
+    @MainActor
     struct Shared { let state = AppState() }
 }
