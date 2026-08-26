@@ -22,11 +22,5 @@
 	<string>1</string>
 	<key>UILaunchScreen</key>
 	<dict/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>ZalandoSansExpanded-1.ttf</string>
-		<string>ZalandoSansExpanded-2.ttf</string>
-		<string>ZalandoSansExpanded-3.ttf</string>
-	</array>
 </dict>
 </plist>

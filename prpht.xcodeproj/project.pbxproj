@@ -8,64 +8,84 @@
 
 /* Begin PBXBuildFile section */
 		00D1A2BC71959BE76CA22C3E /* icon-account.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9266AF4A9DD6791D5CDB4C63 /* icon-account.svg */; };
+		07AF9D942221028BD75203B9 /* icon-love-island.svg in Resources */ = {isa = PBXBuildFile; fileRef = 5F2ED5D377E0BBD9EFE87B10 /* icon-love-island.svg */; };
 		0C20EFE83B4396DC08E6B9FB /* prphtApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67050045713F8428EEE168AF /* prphtApp.swift */; };
+		0C853D678DCBDFC82D0FF9E8 /* icon-football.svg in Resources */ = {isa = PBXBuildFile; fileRef = E9D9290B4B5F3B8976B13E9A /* icon-football.svg */; };
+		0FFE2531CA534E9ABA94FB20 /* icon-cricket.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9A1DA39C0262BF155C88080D /* icon-cricket.svg */; };
 		21390A3C0213CB05B1B511A1 /* BetslipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151DEB5C0FCB6E341CCAB698 /* BetslipView.swift */; };
 		21CBD0CA98E20E321139812C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5DCD0622D473C9AAC43D547 /* Assets.xcassets */; };
 		2D1A32257F96B0DB104D3C06 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D373199C75ABE4FD330CDE5 /* RootView.swift */; };
 		35F0DB497AAE80B192C4E852 /* GroupBetAndSweeps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5F63AC6077953CDD4382DCF /* GroupBetAndSweeps.swift */; };
+		38A7CBA76F49A0B839959BFF /* icon-basketball.svg in Resources */ = {isa = PBXBuildFile; fileRef = BEF49F0D1D459A6E9F046771 /* icon-basketball.svg */; };
 		3EA2DF39B5DECD394AD16A28 /* Sheets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56859B64931E9758ED8412CB /* Sheets.swift */; };
 		45B6FE66D81E7AADF7A74A06 /* icon-share.svg in Resources */ = {isa = PBXBuildFile; fileRef = 26F0A4991DEAE17A93ACF8C0 /* icon-share.svg */; };
 		4BFCF2012EB2BF6F2FEE0764 /* dp-priya.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B911EF73CBCE801365EA0EEE /* dp-priya.jpg */; };
 		538A2023A422B73515DBA372 /* DemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8758B94A2069D8840BF661 /* DemoData.swift */; };
+		5BAAD57A12A04635AAE6F0DF /* ZalandoSansExpanded-2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4744FCB4B019815E4A699FA /* ZalandoSansExpanded-2.ttf */; };
 		5C802BDE027331A61F9D3AFA /* dp-simon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70A3149F4EEC000C144212EF /* dp-simon.jpg */; };
 		63F1AD9496EC80A152FDA925 /* circle.svg in Resources */ = {isa = PBXBuildFile; fileRef = 118B5F7C116CDB2820E1C77B /* circle.svg */; };
+		661735A6A8F5B24B0EC7FB24 /* FixturesTimelineNodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198F1BE366018657F41FB85F /* FixturesTimelineNodes.swift */; };
+		668957C111343472908C1908 /* icon-tennis.svg in Resources */ = {isa = PBXBuildFile; fileRef = 3D675B7FC647BEFC136EF698 /* icon-tennis.svg */; };
 		68E8C1303EEA8117F24FB83A /* icon-like.svg in Resources */ = {isa = PBXBuildFile; fileRef = E55A4C5CE9680AEA468F6A3B /* icon-like.svg */; };
+		805634E7E61BE6627B8B74D5 /* ZalandoSansExpanded-3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 137A945255D3B1A5446F1997 /* ZalandoSansExpanded-3.ttf */; };
 		822E0EBBE33F42DE023388ED /* ForYouView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47CAC5CA42EE8EF1552B5F81 /* ForYouView.swift */; };
+		82D4161A114BF1118AB4D9E8 /* icon-racing.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6EA5C38BB1A8617BE4C6F4C9 /* icon-racing.svg */; };
 		878086BDBEA123FC9C5D3950 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B184187C3050F6473C080F68 /* Theme.swift */; };
 		8BCBFB55B4A1356E5861A470 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3BCB337E22E7B34546DFB0 /* AppState.swift */; };
+		91977D002EC955D4992CD20A /* logo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 639D0F9ED991FF30470D6260 /* logo.svg */; };
+		A59998663C10240C23F48959 /* TimelineMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF406AED5BA4D16656FC82B /* TimelineMap.swift */; };
 		A6EFEEDFC29000C2382FB3B2 /* dp-dee.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 82CF1A763ED081C751FFE429 /* dp-dee.jpg */; };
 		A73F6788997E2E05D53F4879 /* BlobBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C9FEE0209AFA128BDCEF12 /* BlobBackground.swift */; };
 		B8BB127AF237C4E1374AAFD0 /* icon-markets.png in Resources */ = {isa = PBXBuildFile; fileRef = 020D06C3D48329BBF02B427B /* icon-markets.png */; };
+		BC4C8DFFE0F94FB6450E8489 /* ZalandoSansExpanded-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03E6FB8F5C2DB6EF76ADDC30 /* ZalandoSansExpanded-1.ttf */; };
 		C14EC08944FB99886F985F78 /* dp-marcus.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AC809B3C0FD4129303953A1D /* dp-marcus.jpg */; };
 		CAEC7086BBE9EC0345917361 /* icon-bet.svg in Resources */ = {isa = PBXBuildFile; fileRef = 9E91FD8ADC64DD837E57A0EA /* icon-bet.svg */; };
 		CE2E7B257D33C682CD0EF4B5 /* AvatarAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3B7C2A7EE8DC161F8B7FC8 /* AvatarAssets.swift */; };
 		D66842C968FC1DEDEE77D61A /* icon-tick.svg in Resources */ = {isa = PBXBuildFile; fileRef = 068B992E9AFF6C3BDBCCA2F6 /* icon-tick.svg */; };
+		D772F2D2A4A45BD3FD9EC483 /* FixturesTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3D123A3A95EC6D52E3E2DA /* FixturesTimeline.swift */; };
 		E1BD59A193422F613EBB3542 /* FixturesFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543CA56F081132A97AB4AE42 /* FixturesFriendsView.swift */; };
-		0FB82A30287C05DD5B0C00FA /* ZalandoSansExpanded-1.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 459E90C1020EFDEA1FBCAD81 /* ZalandoSansExpanded-1.ttf */; };
-		5F18D7D72408FF55D4D7302B /* ZalandoSansExpanded-2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 98FE2065277C188A52455004 /* ZalandoSansExpanded-2.ttf */; };
-		29F5A4FCD5468E944C1B402F /* ZalandoSansExpanded-3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81E6E888ABDF75ABB8BBC1B5 /* ZalandoSansExpanded-3.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		020D06C3D48329BBF02B427B /* icon-markets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-markets.png"; sourceTree = "<group>"; };
+		03E6FB8F5C2DB6EF76ADDC30 /* ZalandoSansExpanded-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-1.ttf"; sourceTree = "<group>"; };
 		068B992E9AFF6C3BDBCCA2F6 /* icon-tick.svg */ = {isa = PBXFileReference; path = "icon-tick.svg"; sourceTree = "<group>"; };
 		0D3B7C2A7EE8DC161F8B7FC8 /* AvatarAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarAssets.swift; sourceTree = "<group>"; };
 		118B5F7C116CDB2820E1C77B /* circle.svg */ = {isa = PBXFileReference; path = circle.svg; sourceTree = "<group>"; };
+		137A945255D3B1A5446F1997 /* ZalandoSansExpanded-3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-3.ttf"; sourceTree = "<group>"; };
 		151DEB5C0FCB6E341CCAB698 /* BetslipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetslipView.swift; sourceTree = "<group>"; };
+		198F1BE366018657F41FB85F /* FixturesTimelineNodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesTimelineNodes.swift; sourceTree = "<group>"; };
 		1D373199C75ABE4FD330CDE5 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		1D3BCB337E22E7B34546DFB0 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		26F0A4991DEAE17A93ACF8C0 /* icon-share.svg */ = {isa = PBXFileReference; path = "icon-share.svg"; sourceTree = "<group>"; };
+		3D675B7FC647BEFC136EF698 /* icon-tennis.svg */ = {isa = PBXFileReference; path = "icon-tennis.svg"; sourceTree = "<group>"; };
 		47CAC5CA42EE8EF1552B5F81 /* ForYouView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouView.swift; sourceTree = "<group>"; };
 		543CA56F081132A97AB4AE42 /* FixturesFriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesFriendsView.swift; sourceTree = "<group>"; };
 		55C9FEE0209AFA128BDCEF12 /* BlobBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobBackground.swift; sourceTree = "<group>"; };
 		56859B64931E9758ED8412CB /* Sheets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sheets.swift; sourceTree = "<group>"; };
+		5F2ED5D377E0BBD9EFE87B10 /* icon-love-island.svg */ = {isa = PBXFileReference; path = "icon-love-island.svg"; sourceTree = "<group>"; };
+		639D0F9ED991FF30470D6260 /* logo.svg */ = {isa = PBXFileReference; path = logo.svg; sourceTree = "<group>"; };
 		67050045713F8428EEE168AF /* prphtApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prphtApp.swift; sourceTree = "<group>"; };
+		6DF406AED5BA4D16656FC82B /* TimelineMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineMap.swift; sourceTree = "<group>"; };
+		6EA5C38BB1A8617BE4C6F4C9 /* icon-racing.svg */ = {isa = PBXFileReference; path = "icon-racing.svg"; sourceTree = "<group>"; };
 		70A3149F4EEC000C144212EF /* dp-simon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dp-simon.jpg"; sourceTree = "<group>"; };
+		7A3D123A3A95EC6D52E3E2DA /* FixturesTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesTimeline.swift; sourceTree = "<group>"; };
 		82CF1A763ED081C751FFE429 /* dp-dee.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dp-dee.jpg"; sourceTree = "<group>"; };
 		9266AF4A9DD6791D5CDB4C63 /* icon-account.svg */ = {isa = PBXFileReference; path = "icon-account.svg"; sourceTree = "<group>"; };
+		9A1DA39C0262BF155C88080D /* icon-cricket.svg */ = {isa = PBXFileReference; path = "icon-cricket.svg"; sourceTree = "<group>"; };
 		9E91FD8ADC64DD837E57A0EA /* icon-bet.svg */ = {isa = PBXFileReference; path = "icon-bet.svg"; sourceTree = "<group>"; };
 		AC809B3C0FD4129303953A1D /* dp-marcus.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dp-marcus.jpg"; sourceTree = "<group>"; };
 		B184187C3050F6473C080F68 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		B911EF73CBCE801365EA0EEE /* dp-priya.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "dp-priya.jpg"; sourceTree = "<group>"; };
+		BEF49F0D1D459A6E9F046771 /* icon-basketball.svg */ = {isa = PBXFileReference; path = "icon-basketball.svg"; sourceTree = "<group>"; };
 		C5F63AC6077953CDD4382DCF /* GroupBetAndSweeps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupBetAndSweeps.swift; sourceTree = "<group>"; };
 		CD8758B94A2069D8840BF661 /* DemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoData.swift; sourceTree = "<group>"; };
 		D5DCD0622D473C9AAC43D547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DED62A97C01D29568A12947D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E55A4C5CE9680AEA468F6A3B /* icon-like.svg */ = {isa = PBXFileReference; path = "icon-like.svg"; sourceTree = "<group>"; };
+		E9D9290B4B5F3B8976B13E9A /* icon-football.svg */ = {isa = PBXFileReference; path = "icon-football.svg"; sourceTree = "<group>"; };
+		F4744FCB4B019815E4A699FA /* ZalandoSansExpanded-2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-2.ttf"; sourceTree = "<group>"; };
 		F5F3FF2768E9E10024D3D73A /* prpht.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = prpht.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		459E90C1020EFDEA1FBCAD81 /* ZalandoSansExpanded-1.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-1.ttf"; sourceTree = "<group>"; };
-		98FE2065277C188A52455004 /* ZalandoSansExpanded-2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-2.ttf"; sourceTree = "<group>"; };
-		81E6E888ABDF75ABB8BBC1B5 /* ZalandoSansExpanded-3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ZalandoSansExpanded-3.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -87,10 +107,13 @@
 			children = (
 				151DEB5C0FCB6E341CCAB698 /* BetslipView.swift */,
 				543CA56F081132A97AB4AE42 /* FixturesFriendsView.swift */,
+				7A3D123A3A95EC6D52E3E2DA /* FixturesTimeline.swift */,
+				198F1BE366018657F41FB85F /* FixturesTimelineNodes.swift */,
 				47CAC5CA42EE8EF1552B5F81 /* ForYouView.swift */,
 				C5F63AC6077953CDD4382DCF /* GroupBetAndSweeps.swift */,
 				1D373199C75ABE4FD330CDE5 /* RootView.swift */,
 				56859B64931E9758ED8412CB /* Sheets.swift */,
+				6DF406AED5BA4D16656FC82B /* TimelineMap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -109,19 +132,9 @@
 				020D06C3D48329BBF02B427B /* icon-markets.png */,
 				26F0A4991DEAE17A93ACF8C0 /* icon-share.svg */,
 				068B992E9AFF6C3BDBCCA2F6 /* icon-tick.svg */,
-				3A31FB0DBF3C535F2A684386 /* web-assets */,
+				AED3D67771CFB02F8B17F98C /* web-assets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		3A31FB0DBF3C535F2A684386 /* web-assets */ = {
-			isa = PBXGroup;
-			children = (
-				459E90C1020EFDEA1FBCAD81 /* ZalandoSansExpanded-1.ttf */,
-				98FE2065277C188A52455004 /* ZalandoSansExpanded-2.ttf */,
-				81E6E888ABDF75ABB8BBC1B5 /* ZalandoSansExpanded-3.ttf */,
-			);
-			path = "web-assets";
 			sourceTree = "<group>";
 		};
 		5CA1E55213269D574A925466 /* Sources */ = {
@@ -150,6 +163,23 @@
 				140AB3F3192A5F7CE9C230F3 /* prpht */,
 				80EC5189A79F6D26E9E84BCB /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		AED3D67771CFB02F8B17F98C /* web-assets */ = {
+			isa = PBXGroup;
+			children = (
+				BEF49F0D1D459A6E9F046771 /* icon-basketball.svg */,
+				9A1DA39C0262BF155C88080D /* icon-cricket.svg */,
+				E9D9290B4B5F3B8976B13E9A /* icon-football.svg */,
+				5F2ED5D377E0BBD9EFE87B10 /* icon-love-island.svg */,
+				6EA5C38BB1A8617BE4C6F4C9 /* icon-racing.svg */,
+				3D675B7FC647BEFC136EF698 /* icon-tennis.svg */,
+				639D0F9ED991FF30470D6260 /* logo.svg */,
+				03E6FB8F5C2DB6EF76ADDC30 /* ZalandoSansExpanded-1.ttf */,
+				F4744FCB4B019815E4A699FA /* ZalandoSansExpanded-2.ttf */,
+				137A945255D3B1A5446F1997 /* ZalandoSansExpanded-3.ttf */,
+			);
+			path = "web-assets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,20 +239,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				21CBD0CA98E20E321139812C /* Assets.xcassets in Resources */,
+				BC4C8DFFE0F94FB6450E8489 /* ZalandoSansExpanded-1.ttf in Resources */,
+				5BAAD57A12A04635AAE6F0DF /* ZalandoSansExpanded-2.ttf in Resources */,
+				805634E7E61BE6627B8B74D5 /* ZalandoSansExpanded-3.ttf in Resources */,
 				63F1AD9496EC80A152FDA925 /* circle.svg in Resources */,
 				A6EFEEDFC29000C2382FB3B2 /* dp-dee.jpg in Resources */,
 				C14EC08944FB99886F985F78 /* dp-marcus.jpg in Resources */,
 				4BFCF2012EB2BF6F2FEE0764 /* dp-priya.jpg in Resources */,
 				5C802BDE027331A61F9D3AFA /* dp-simon.jpg in Resources */,
 				00D1A2BC71959BE76CA22C3E /* icon-account.svg in Resources */,
+				38A7CBA76F49A0B839959BFF /* icon-basketball.svg in Resources */,
 				CAEC7086BBE9EC0345917361 /* icon-bet.svg in Resources */,
+				0FFE2531CA534E9ABA94FB20 /* icon-cricket.svg in Resources */,
+				0C853D678DCBDFC82D0FF9E8 /* icon-football.svg in Resources */,
 				68E8C1303EEA8117F24FB83A /* icon-like.svg in Resources */,
+				07AF9D942221028BD75203B9 /* icon-love-island.svg in Resources */,
 				B8BB127AF237C4E1374AAFD0 /* icon-markets.png in Resources */,
+				82D4161A114BF1118AB4D9E8 /* icon-racing.svg in Resources */,
 				45B6FE66D81E7AADF7A74A06 /* icon-share.svg in Resources */,
+				668957C111343472908C1908 /* icon-tennis.svg in Resources */,
 				D66842C968FC1DEDEE77D61A /* icon-tick.svg in Resources */,
-				0FB82A30287C05DD5B0C00FA /* ZalandoSansExpanded-1.ttf in Resources */,
-				5F18D7D72408FF55D4D7302B /* ZalandoSansExpanded-2.ttf in Resources */,
-				29F5A4FCD5468E944C1B402F /* ZalandoSansExpanded-3.ttf in Resources */,
+				91977D002EC955D4992CD20A /* logo.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,11 +276,14 @@
 				A73F6788997E2E05D53F4879 /* BlobBackground.swift in Sources */,
 				538A2023A422B73515DBA372 /* DemoData.swift in Sources */,
 				E1BD59A193422F613EBB3542 /* FixturesFriendsView.swift in Sources */,
+				D772F2D2A4A45BD3FD9EC483 /* FixturesTimeline.swift in Sources */,
+				661735A6A8F5B24B0EC7FB24 /* FixturesTimelineNodes.swift in Sources */,
 				822E0EBBE33F42DE023388ED /* ForYouView.swift in Sources */,
 				35F0DB497AAE80B192C4E852 /* GroupBetAndSweeps.swift in Sources */,
 				2D1A32257F96B0DB104D3C06 /* RootView.swift in Sources */,
 				3EA2DF39B5DECD394AD16A28 /* Sheets.swift in Sources */,
 				878086BDBEA123FC9C5D3950 /* Theme.swift in Sources */,
+				A59998663C10240C23F48959 /* TimelineMap.swift in Sources */,
 				0C20EFE83B4396DC08E6B9FB /* prphtApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

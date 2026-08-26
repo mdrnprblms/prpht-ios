@@ -26,7 +26,7 @@ struct RootView: View {
                     .tag(FeedPage.forYou)
                 BetslipView(state: state)
                     .tag(FeedPage.betslip)
-                FixturesView(state: state)
+                FixturesTimelineView(state: state)
                     .tag(FeedPage.fixtures)
                 FriendsView(state: state)
                     .tag(FeedPage.friends)
